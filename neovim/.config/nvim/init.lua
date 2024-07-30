@@ -75,8 +75,13 @@ require("lazy").setup({
     },
   },
   {
-    'nvim-telescope/telescope.nvim',
+    "ibhagwan/fzf-lua",
     version = "*",
-    dependencies = { 'nvim-lua/plenary.nvim' }
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      -- calling `setup` is optional for customization
+      require("fzf-lua").setup({})
+    end
   },
 })

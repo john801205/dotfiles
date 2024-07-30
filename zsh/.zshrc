@@ -1,4 +1,7 @@
 # History
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=1000000
+SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
 setopt SHARE_HISTORY             # Share history between all sessions.
 setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
@@ -41,4 +44,10 @@ zstyle ':completion:*' menu select
 if type kubectl &>/dev/null
 then
 	source <(kubectl completion zsh)
+fi
+
+# Enable fzf
+if type fzf &>/dev/null
+then
+	source <(fzf --zsh)
 fi

@@ -1,0 +1,5 @@
+[font]
+size = 15
+
+[keyboard]
+bindings = [{ key = "C", mods = "Command", chars = "\u001bc" }]

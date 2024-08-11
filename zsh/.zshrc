@@ -35,6 +35,17 @@ then
 	FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 fi
 
+# Enable docker completion
+if type docker &>/dev/null
+then
+	if [[ ! -f ${HOME}/.docker/completions/_docker ]]; then
+		mkdir -p ${HOME}/.docker/completions
+		docker completion zsh > ${HOME}/.docker/completions/_docker
+	fi
+	FPATH="${HOME}/.docker/completions:${FPATH}"
+fi
+
+
 autoload -U compinit; compinit
 
 # Allow you to select in a menu
@@ -46,7 +57,7 @@ then
 	source <(kubectl completion zsh)
 fi
 
-# Enable fzf
+# Enable fzf integration
 if type fzf &>/dev/null
 then
 	source <(fzf --zsh)

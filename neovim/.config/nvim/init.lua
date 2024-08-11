@@ -58,11 +58,13 @@ require("lazy").setup({
     version = "*",
     config = function()
       require("lspconfig").gopls.setup({})
+      require("lspconfig").rust_analyzer.setup({})
     end,
   },
   {
     "folke/which-key.nvim",
     version = "*",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     event = "VeryLazy",
     init = function()
       vim.o.timeout = true

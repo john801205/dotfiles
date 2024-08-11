@@ -1,5 +1,6 @@
 [font]
-size = 15
+size = 14
 
-[keyboard]
-bindings = [{ key = "C", mods = "Command", chars = "\u001bc" }]
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"

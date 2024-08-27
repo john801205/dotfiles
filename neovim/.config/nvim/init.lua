@@ -1,3 +1,16 @@
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.tabstop = 2
@@ -11,19 +24,6 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.undofile = true
 vim.opt.scrolloff = 10
-
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   -- the colorscheme should be available when starting Neovim
@@ -39,7 +39,6 @@ require("lazy").setup({
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    version = "*",
     build = ":TSUpdate",
     config = function () 
       local configs = require("nvim-treesitter.configs")
@@ -59,6 +58,12 @@ require("lazy").setup({
     config = function()
       require("lspconfig").gopls.setup({})
       require("lspconfig").rust_analyzer.setup({})
+      require("lspconfig").clangd.setup({
+        cmd = {'clangd', '--background-index', '--clang-tidy'},
+        init_options = {
+          fallbackFlags = { '-std=c++20', '-Wall', '-Wextra', '-Wpedantic' },
+        },
+      })
     end,
   },
   {

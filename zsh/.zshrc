@@ -18,22 +18,20 @@ bindkey -v
 # Should be called before compinit
 zmodload zsh/complist
 
-# Use hjlk in menu selection (during completion)
-# Doesn't work well with interactive mode
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
+# Allow you to select in a menu
+zstyle ':completion:*' menu select
+
+bindkey -M menuselect '?' history-incremental-search-backward
+bindkey -M menuselect '/' history-incremental-search-forward
+# Use ^+hjlk in menu selection (during completion)
+bindkey -M menuselect '^h' vi-backward-char
+bindkey -M menuselect '^k' vi-up-line-or-history
+bindkey -M menuselect '^j' vi-down-line-or-history
+bindkey -M menuselect '^l' vi-forward-char
 
 setopt MENU_COMPLETE        # Automatically highlight first element of completion menu
 setopt AUTO_LIST            # Automatically list choices on ambiguous completion.
 setopt COMPLETE_IN_WORD     # Complete from both ends of a word.
-
-# Enable homebrew completion
-if type brew &>/dev/null
-then
-	FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-fi
 
 # Enable docker completion
 if type docker &>/dev/null
@@ -45,20 +43,27 @@ then
 	FPATH="${HOME}/.docker/completions:${FPATH}"
 fi
 
-
 autoload -U compinit; compinit
-
-# Allow you to select in a menu
-zstyle ':completion:*' menu select
-
-# Enable kubectl completion
-if type kubectl &>/dev/null
-then
-	source <(kubectl completion zsh)
-fi
+autoload -Uz edit-command-line
+zle -N edit-command-line
 
 # Enable fzf integration
 if type fzf &>/dev/null
 then
 	source <(fzf --zsh)
+fi
+
+# fzf-tab
+source ${HOME}/.local/share/zsh/fzf-tab/fzf-tab.plugin.zsh
+
+# Enable k9s completion
+if type k9s &>/dev/null
+then
+	source <(k9s completion zsh)
+fi
+
+# Enable rust completion
+if type rustup &>/dev/null
+then
+	source <(rustup completions zsh)
 fi

@@ -27,7 +27,7 @@ vim.opt.cursorline = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.undofile = true
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 5
 
 vim.wo.foldmethod = 'expr'
 vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
@@ -107,9 +107,5 @@ require("lazy").setup({
         require("nvim-tree").setup {}
       end,
     },
-  },
-  checker = {
-    enabled = true,
-    frequency = 86400,
   },
 })

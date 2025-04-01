@@ -1,8 +1,14 @@
 return {
 	'stevearc/oil.nvim',
+	version = "*",
 	---@module 'oil'
 	---@type oil.SetupOpts
-	opts = {},
+	opts = {
+		view_options = {
+			-- Show files and directories that start with "."
+			show_hidden = true,
+		},
+	},
 	-- Optional dependencies
 	-- dependencies = { { "echasnovski/mini.icons", opts = {} } },
 	dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons

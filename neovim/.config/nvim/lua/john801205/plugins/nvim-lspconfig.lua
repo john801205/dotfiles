@@ -1,5 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
+	dependencies = { "j-hui/fidget.nvim" },
 	version = "*",
 	config = function()
 		require("lspconfig").gopls.setup({})
@@ -12,6 +13,9 @@ return {
 		require("lspconfig").pyright.setup({})
 		require("lspconfig").metals.setup({
 			filetypes = { 'scala', 'java' },
+			init_options = {
+				statusBarProvider = "off",
+			},
 			settings = {
 				metals = {
 					defaultBspToBuildTool = true,

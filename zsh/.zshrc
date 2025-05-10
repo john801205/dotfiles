@@ -15,24 +15,6 @@ setopt HIST_VERIFY               # Do not execute immediately upon history expan
 # Vi mode
 bindkey -v
 
-# Should be called before compinit
-zmodload zsh/complist
-
-# Allow you to select in a menu
-zstyle ':completion:*' menu select
-
-bindkey -M menuselect '?' history-incremental-search-backward
-bindkey -M menuselect '/' history-incremental-search-forward
-# Use ^+hjlk in menu selection (during completion)
-bindkey -M menuselect '^h' vi-backward-char
-bindkey -M menuselect '^k' vi-up-line-or-history
-bindkey -M menuselect '^j' vi-down-line-or-history
-bindkey -M menuselect '^l' vi-forward-char
-
-setopt MENU_COMPLETE        # Automatically highlight first element of completion menu
-setopt AUTO_LIST            # Automatically list choices on ambiguous completion.
-setopt COMPLETE_IN_WORD     # Complete from both ends of a word.
-
 # Enable docker completion
 if type docker &>/dev/null
 then

@@ -17,3 +17,4 @@ require("lazy").setup({
 		{ import = "john801205.plugins" },
 	}
 })
+require("john801205.lsp")

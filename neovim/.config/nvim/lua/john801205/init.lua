@@ -12,9 +12,5 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("john801205.settings")
-require("lazy").setup({
-	spec = {
-		{ import = "john801205.plugins" },
-	}
-})
+require("lazy").setup({ spec = {{ import = "john801205.plugins" }} })
 require("john801205.lsp")

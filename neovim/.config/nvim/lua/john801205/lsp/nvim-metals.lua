@@ -13,7 +13,7 @@ local function configuration()
 					defaultBspToBuildTool = true,
 				},
 			},
-			find_root_dir_max_project_nesting = 2,
+			find_root_dir_max_project_nesting = 3,
 		})
 	end
 

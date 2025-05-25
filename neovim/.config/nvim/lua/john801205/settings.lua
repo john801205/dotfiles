@@ -16,13 +16,16 @@ vim.opt.cursorline = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.undofile = true
-vim.opt.scrolloff = 5
 
+vim.opt.scrolloff = 5
+vim.opt.sidescrolloff = 5
+
+vim.opt.wrap = false
 vim.opt.textwidth = 80
 vim.opt.colorcolumn = "+1"
 
-vim.wo.foldmethod = 'expr'
-vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.opt.foldlevelstart = 99
 
 vim.opt.splitright = true

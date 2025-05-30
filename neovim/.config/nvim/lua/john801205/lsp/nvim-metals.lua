@@ -28,6 +28,7 @@ function M.initialize_or_attach()
 end
 
 vim.api.nvim_create_autocmd("FileType", {
+	group = "john801205",
 	pattern = { "scala", "sbt" },
 	callback = M.initialize_or_attach,
 })

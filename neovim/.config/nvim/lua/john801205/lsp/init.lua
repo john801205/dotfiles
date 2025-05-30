@@ -1,3 +1,5 @@
+require("john801205.lsp.lsp_progress")
+
 require("john801205.lsp.java")
 require("john801205.lsp.lua_ls")
 

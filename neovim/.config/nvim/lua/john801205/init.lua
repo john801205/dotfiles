@@ -11,6 +11,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.api.nvim_create_augroup("john801205", { clear = true })
+
 require("john801205.settings")
 require("lazy").setup({ spec = {{ import = "john801205.plugins" }} })
 require("john801205.lsp")

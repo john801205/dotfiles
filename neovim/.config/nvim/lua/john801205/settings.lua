@@ -24,8 +24,6 @@ vim.opt.wrap = false
 vim.opt.textwidth = 80
 vim.opt.colorcolumn = "+1"
 
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.opt.foldlevelstart = 99
 
 vim.opt.splitright = true

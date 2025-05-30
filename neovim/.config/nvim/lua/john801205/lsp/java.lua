@@ -8,6 +8,7 @@ local function is_scala_project()
 end
 
 vim.api.nvim_create_autocmd("FileType", {
+	group = "john801205",
 	pattern = { "java" },
 	callback = function()
 		if is_scala_project() then

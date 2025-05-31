@@ -11,10 +11,10 @@ local function start_treesitter(args)
 	end
 
 	local function start()
-		vim.treesitter.start(bufno, lang)
 		vim.wo.foldmethod = 'expr'
 		vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+		vim.treesitter.start(bufno, lang)
 	end
 
 	--- @return boolean
@@ -33,11 +33,11 @@ local function start_treesitter(args)
 		require("nvim-treesitter").install(lang):await(function()
 			if check() then
 				start()
+			else
+				-- Manually update `has_parser_for` since the parser remains
+				-- unavailable even after an attempted installation.
+				has_parser_for[lang] = false
 			end
-
-			-- Manually update `has_parser_for` since the parser remains
-			-- unavailable even after an attempted installation.
-			has_parser_for[lang] = false
 		end)
 	end
 
@@ -53,14 +53,24 @@ local function start_treesitter(args)
 	end
 end
 
+local function is_UI_available()
+	return #vim.api.nvim_list_uis() > 0
+end
+
 --- @type string
-local augroup_id = 'nvim-treesitter.start'
+local augroup_id = 'john801205.nvim-treesitter'
 
 return {
 	"nvim-treesitter/nvim-treesitter",
 	lazy = false,
 	branch = "main",
-	build = ":TSUpdate",
+	build = function()
+		if is_UI_available() then
+			require('nvim-treesitter').update()
+		else
+			require('nvim-treesitter').update():wait()
+		end
+	end,
 	config = function ()
 		vim.api.nvim_create_autocmd('FileType', {
 			group = vim.api.nvim_create_augroup(augroup_id, { clear = true }),

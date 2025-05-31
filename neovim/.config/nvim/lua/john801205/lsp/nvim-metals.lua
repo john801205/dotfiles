@@ -28,7 +28,7 @@ function M.initialize_or_attach()
 end
 
 vim.api.nvim_create_autocmd("FileType", {
-	group = "john801205",
+	group = vim.api.nvim_create_augroup('john801205.lsp.metals', { clear = true }),
 	pattern = { "scala", "sbt" },
 	callback = M.initialize_or_attach,
 })

@@ -45,6 +45,6 @@ local function lsp_progress_notify(ev)
 end
 
 vim.api.nvim_create_autocmd("LspProgress", {
-	group = "john801205",
+	group = vim.api.nvim_create_augroup('john801205.lsp.progress_notify', { clear = true }),
 	callback = lsp_progress_notify,
 })

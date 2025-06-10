@@ -35,10 +35,15 @@ local function lsp_progress_notify(ev)
 		id = "lsp_progress_" .. client.id,
 		title = client.name,
 		history = false,
+		timeout = false, -- keep showing the notification until finished
 		opts = function(notif)
-			local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-			notif.icon = #progress[client.id] == 0 and " "
-			or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+			if #progress[client.id] == 0 then
+				notif.timeout = nil -- reset to use default timeout
+				notif.icon = " "
+			else
+				local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+				notif.icon = spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+			end
 		end,
 	}
 	vim.notify(table.concat(msg, "\n"), vim.log.levels.INFO, opts)

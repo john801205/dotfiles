@@ -15,5 +15,5 @@ return {
 			}
 		})
 		fzf.register_ui_select()
-	end
+	end,
 }

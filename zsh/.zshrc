@@ -15,23 +15,18 @@ setopt HIST_VERIFY               # Do not execute immediately upon history expan
 # Vi mode
 bindkey -v
 
-# Enable docker completion
-if type docker &>/dev/null
-then
-	if [[ ! -f ${HOME}/.docker/completions/_docker ]]; then
-		mkdir -p ${HOME}/.docker/completions
-		docker completion zsh > ${HOME}/.docker/completions/_docker
-	fi
-	FPATH="${HOME}/.docker/completions:${FPATH}"
+autoload -U compinit; compinit
+
+autoload -U +X bashcompinit && bashcompinit
+if type terraform &>/dev/null; then
+	complete -o nospace -C /opt/homebrew/bin/terraform terraform
 fi
 
-autoload -U compinit; compinit
 autoload -Uz edit-command-line
 zle -N edit-command-line
 
 # Enable fzf integration
-if type fzf &>/dev/null
-then
+if type fzf &>/dev/null; then
 	source <(fzf --zsh)
 fi
 
@@ -39,13 +34,11 @@ fi
 source ${HOME}/.local/share/zsh/fzf-tab/fzf-tab.plugin.zsh
 
 # Enable k9s completion
-if type k9s &>/dev/null
-then
+if type k9s &>/dev/null; then
 	source <(k9s completion zsh)
 fi
 
 # Enable rust completion
-if type rustup &>/dev/null
-then
+if type rustup &>/dev/null; then
 	source <(rustup completions zsh)
 fi

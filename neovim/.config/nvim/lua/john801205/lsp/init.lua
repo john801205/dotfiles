@@ -9,7 +9,7 @@ vim.lsp.enable('rust_analyzer')
 
 vim.lsp.config('clangd', {
 	init_options = {
-		fallbackFlags = { '-std=c++20', '-Wall', '-Wextra', '-Wpedantic' },
+		fallbackFlags = { '-Wall', '-Wextra', '-Wpedantic' },
 	},
 })
 vim.lsp.enable('clangd')

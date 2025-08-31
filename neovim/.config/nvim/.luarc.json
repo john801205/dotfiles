@@ -14,8 +14,10 @@
 			"${3rd}/luv/library",
 			"${3rd}/busted/library",
 			"${3rd}/luassert/library",
+			"~/.local/share/nvim/lazy/nvim-metals",
 			"~/.local/share/nvim/lazy/oil.nvim",
-			"~/.local/share/nvim/lazy/snacks.nvim"
+			"~/.local/share/nvim/lazy/snacks.nvim",
+			"~/.local/share/nvim/lazy/nvim-cmp",
 		],
 		"checkThirdParty": false
 	}

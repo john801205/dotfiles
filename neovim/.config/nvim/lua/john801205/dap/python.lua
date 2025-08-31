@@ -35,5 +35,6 @@ dap.configurations.python = {
 			local port = tonumber(vim.fn.input('Port [5678]: ')) or 5678
 			return { host = host, port = port }
 		end,
+		justMyCode = false,
 	},
 }

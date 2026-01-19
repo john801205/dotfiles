@@ -25,7 +25,8 @@ local function java_runtimes()
 	-- `enum ExecutionEnvironment` in the link above
 	local jdks = {
 		{ name = 'JavaSE-21', version = 21 },
-		{ name = 'JavaSE-24', version = 24 },
+		{ name = 'JavaSE-17', version = 17 },
+		{ name = 'JavaSE-25', version = 25 },
 	}
 
 	local runtimes = {}

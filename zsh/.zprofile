@@ -4,7 +4,7 @@ export VISUAL=nvim
 export EDITOR=${VISUAL}
 export LANG=en_US.UTF-8
 
-export JAVA_HOME="$(/usr/libexec/java_home)"
+export JAVA_HOME="$(/usr/libexec/java_home -v 21)"
 
 . "$HOME/.cargo/env"
 

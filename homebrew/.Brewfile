@@ -13,6 +13,8 @@ brew "cmake"
 brew "colima"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
+# Docker CLI plugin for extended build capabilities with BuildKit
+brew "docker-buildx"
 # Isolated development environments using Docker
 brew "docker-compose"
 # CLI utility to build and manage a PKI CA
@@ -47,10 +49,10 @@ brew "jdtls"
 brew "jq"
 # Open-source distributed event streaming platform
 brew "kafka"
-# Kubernetes command-line interface
-brew "kubernetes-cli"
 # Tool that can switch between kubectl contexts easily and create aliases
 brew "kubectx"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
 # Next-gen compiler infrastructure
 brew "llvm"
 # Language Server for the Lua language
@@ -61,6 +63,8 @@ brew "marksman"
 brew "maven"
 # Run a Kubernetes cluster locally
 brew "minikube"
+# Open source relational database management system
+brew "mysql"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Create, run, and share large language models (LLMs)
@@ -127,6 +131,8 @@ cask "bitwarden"
 cask "chatgpt"
 # Anthropic's official Claude AI desktop app
 cask "claude"
+# Terminal-based AI coding assistant
+cask "claude-code"
 # Column-oriented database management system
 cask "clickhouse"
 # Write, edit, and chat about your code with AI
@@ -158,8 +164,10 @@ cask "whisky"
 cask "wireshark-app"
 # Multiplayer code editor
 cask "zed"
-vscode "github.copilot"
+# Gecko based web browser
+cask "zen"
 vscode "github.copilot-chat"
+vscode "ms-vscode-remote.remote-containers"
 vscode "redhat.java"
 vscode "scala-lang.scala"
 vscode "scalameta.metals"

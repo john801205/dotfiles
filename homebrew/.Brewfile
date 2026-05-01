@@ -1,6 +1,10 @@
 tap "coursier/formulas"
 tap "derailed/k9s"
 tap "hashicorp/tap"
+# Development kit for the Java programming language
+brew "openjdk"
+# Avro command-line tools and utilities
+brew "avro-tools"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Language Server for Bash
@@ -17,6 +21,8 @@ brew "docker"
 brew "docker-buildx"
 # Isolated development environments using Docker
 brew "docker-compose"
+# Embeddable SQL OLAP Database Management System
+brew "duckdb"
 # CLI utility to build and manage a PKI CA
 brew "easy-rsa"
 # Simple command-line tool for creating clusters on Amazon EKS
@@ -33,8 +39,6 @@ brew "git-delta"
 brew "go"
 # Language server for the Go language
 brew "gopls"
-# Development kit for the Java programming language
-brew "openjdk"
 # Open-source build automation tool based on the Groovy and Kotlin DSL
 brew "gradle"
 # Graph visualization software from AT&T and Bell Labs

@@ -6,6 +6,12 @@ return {
 		-- calling `setup` is optional for customization
 		local fzf = require("fzf-lua")
 		fzf.setup({
+			actions = {
+				files = {
+					true, -- inherit from defaults
+					["alt-l"] = fzf.actions.file_sel_to_ll,
+				},
+			},
 			files = {
 				follow = true, -- follow symlinks
 			},

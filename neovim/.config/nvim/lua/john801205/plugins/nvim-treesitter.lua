@@ -1,5 +1,3 @@
---- @type table<string, boolean|nil>
-local has_parser_for = {}
 
 --- @param args vim.api.keyset.create_autocmd.callback_args
 local function start_treesitter(args)
@@ -22,12 +20,9 @@ local function start_treesitter(args)
 	--- @return boolean
 	local function check()
 		if vim.treesitter.language.add(lang) then
-			has_parser_for[lang] = true
 			return true
 		end
 
-		-- Because the parser could exist after installation, we don't update
-		-- `has_parser_for` here
 		return false
 	end
 
@@ -35,19 +30,15 @@ local function start_treesitter(args)
 		require("nvim-treesitter").install(lang):await(function()
 			if check() then
 				start()
-			else
-				-- Manually update `has_parser_for` since the parser remains
-				-- unavailable even after an attempted installation.
-				has_parser_for[lang] = false
 			end
 		end)
 	end
 
 
-	local exists = has_parser_for[lang]
-	if exists == false then
-	elseif exists == true then
-		start()
+	--- @type table<string, nvim-treesitter.ParserInfo>
+	local parsers = require('nvim-treesitter.parsers')
+	if parsers[lang] == nil then
+		return
 	elseif check() then
 		start()
 	else
@@ -81,7 +72,6 @@ return {
 		})
 	end,
 	deactivate = function()
-		has_parser_for = {}
 		vim.api.nvim_del_augroup_by_name(augroup_id)
 	end,
 }

@@ -11,11 +11,25 @@ return {
 		-- your configuration comes here
 		-- or leave it empty to use the default settings
 		-- refer to the configuration section below
+		styles = {
+			notification = {
+				focusable = false,
+			},
+			notification_history = {
+				wo = {
+					colorcolumn = "",
+				},
+			},
+		},
+		bigfile = {
+			enabled = true,
+		},
 		input = {
 			enabled = is_UI_available(),
 		},
 		notifier = {
 			enabled = is_UI_available(),
+			timeout = 5000,
 		},
 	},
 }

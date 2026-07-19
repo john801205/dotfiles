@@ -26,7 +26,7 @@ local function java_runtimes()
 	local jdks = {
 		{ name = 'JavaSE-21', version = 21 },
 		{ name = 'JavaSE-17', version = 17 },
-		{ name = 'JavaSE-25', version = 25 },
+		{ name = 'JavaSE-26', version = 26 },
 	}
 
 	local runtimes = {}

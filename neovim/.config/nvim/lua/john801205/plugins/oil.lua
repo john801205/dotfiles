@@ -34,6 +34,9 @@ return {
 	---@module 'oil'
 	---@type oil.SetupOpts
 	opts = {
+		win_options = {
+			colorcolumn = "",
+		},
 		view_options = {
 			-- Show files and directories that start with "."
 			show_hidden = true,
@@ -47,6 +50,12 @@ return {
 				callback = toggle_file_detail_view,
 				mode = "n",
 			},
+		},
+		confirmation = {
+			border = "rounded",
+		},
+		progress = {
+			border = "rounded",
 		},
 	},
 	-- Optional dependencies

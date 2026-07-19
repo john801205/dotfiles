@@ -118,13 +118,13 @@ brew "yq"
 # Centralized server for distributed coordination of services
 brew "zookeeper"
 # Launcher for Coursier
-brew "coursier/formulas/coursier"
+brew "coursier/formulas/coursier", trusted: true
 # Kubernetes CLI To Manage Your Clusters In Style!
-brew "derailed/k9s/k9s"
+brew "derailed/k9s/k9s", trusted: true
 # Terraform
-brew "hashicorp/tap/terraform"
+brew "hashicorp/tap/terraform", trusted: true
 # Vault
-brew "hashicorp/tap/vault"
+brew "hashicorp/tap/vault", trusted: true
 # GPU-accelerated terminal emulator
 cask "alacritty"
 # Chromium based browser
@@ -143,6 +143,8 @@ cask "clickhouse"
 cask "cursor"
 # Universal database tool and SQL client
 cask "dbeaver-community"
+# Web browser
+cask "firefox"
 cask "font-jetbrains-mono-nerd-font"
 # Set of tools to manage resources and applications hosted on Google Cloud
 cask "gcloud-cli"
@@ -170,7 +172,6 @@ cask "wireshark-app"
 cask "zed"
 # Gecko based web browser
 cask "zen"
-vscode "github.copilot-chat"
 vscode "ms-vscode-remote.remote-containers"
 vscode "redhat.java"
 vscode "scala-lang.scala"

@@ -31,7 +31,7 @@ if type fzf &>/dev/null; then
 fi
 
 # fzf-tab
-source ${HOME}/.local/share/zsh/fzf-tab/fzf-tab.plugin.zsh
+if [ -f '/opt/homebrew/opt/fzf-tab/share/fzf-tab/fzf-tab.zsh' ]; then . '/opt/homebrew/opt/fzf-tab/share/fzf-tab/fzf-tab.zsh'; fi
 
 # Enable k9s completion
 if type k9s &>/dev/null; then

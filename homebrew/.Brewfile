@@ -1,3 +1,4 @@
+tap "atlassian/acli"
 tap "coursier/formulas"
 tap "derailed/k9s"
 tap "hashicorp/tap"
@@ -33,8 +34,12 @@ brew "fd"
 brew "fish"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# GitHub command-line tool
+brew "gh"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
 # Language server for the Go language
@@ -53,12 +58,18 @@ brew "jdtls"
 brew "jq"
 # Open-source distributed event streaming platform
 brew "kafka"
+# Run local Kubernetes cluster in Docker
+brew "kind"
 # Tool that can switch between kubectl contexts easily and create aliases
 brew "kubectx"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
+# LLM inference in C/C++
+brew "llama.cpp"
 # Next-gen compiler infrastructure
 brew "llvm"
+# Next generation, high-performance debugger
+brew "lldb"
 # Language Server for the Lua language
 brew "lua-language-server"
 # Language Server Protocol for Markdown
@@ -68,7 +79,7 @@ brew "maven"
 # Run a Kubernetes cluster locally
 brew "minikube"
 # Open source relational database management system
-brew "mysql"
+brew "mysql@8.4", link: true
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Create, run, and share large language models (LLMs)
@@ -117,6 +128,8 @@ brew "wget"
 brew "yq"
 # Centralized server for distributed coordination of services
 brew "zookeeper"
+# Software to interact with Atlassian Cloud from the terminal
+brew "atlassian/acli/acli", trusted: true
 # Launcher for Coursier
 brew "coursier/formulas/coursier", trusted: true
 # Kubernetes CLI To Manage Your Clusters In Style!

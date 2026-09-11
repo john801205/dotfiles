@@ -10,7 +10,6 @@ local function initCommands()
 		.. rustc_sysroot
 	)
 	local script_file = rustc_sysroot .. '/lib/rustlib/etc/lldb_lookup.py'
-	local commands_file = rustc_sysroot .. '/lib/rustlib/etc/lldb_commands'
 
 	-- The following is a table/list of lldb commands, which have a syntax
 	-- similar to shell commands.
@@ -34,14 +33,13 @@ local function initCommands()
 	-- formatters are merely regex-matched against type names. Also note that
 	-- .lldbinit doesn't support the `!` and `?` prefix shorthands.
 	return {
-		([[!command script import '%s']]):format(script_file),
-		([[!command source '%s']]):format(commands_file),
+		([[!command script import '%s']]):format(script_file)
 	}
 end
 
 dap.adapters.lldb = {
 	type = 'executable',
-	command = '/opt/homebrew/opt/llvm/bin/lldb-dap',
+	command = '/opt/homebrew/opt/lldb/bin/lldb-dap',
 	options = {
 		detached = false,
 	},

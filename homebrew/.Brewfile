@@ -34,6 +34,8 @@ brew "fd"
 brew "fish"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# Replace zsh completion selection menu with fzf
+brew "fzf-tab"
 # GitHub command-line tool
 brew "gh"
 # Syntax-highlighting pager for git and diff output
@@ -90,6 +92,8 @@ brew "openjdk@17"
 brew "parquet-cli"
 # PostgreSQL syntax beautifier
 brew "pgformatter"
+# AI agent toolkit
+brew "pi-coding-agent"
 # Static type checker for Python
 brew "pyright"
 # Interpreted, interactive, object-oriented programming language
@@ -131,7 +135,7 @@ brew "zookeeper"
 # Software to interact with Atlassian Cloud from the terminal
 brew "atlassian/acli/acli", trusted: true
 # Launcher for Coursier
-brew "coursier/formulas/coursier", trusted: true
+brew "coursier/formulas/coursier", args: ["without-shell-completions"], trusted: true
 # Kubernetes CLI To Manage Your Clusters In Style!
 brew "derailed/k9s/k9s", trusted: true
 # Terraform
@@ -140,29 +144,17 @@ brew "hashicorp/tap/terraform", trusted: true
 brew "hashicorp/tap/vault", trusted: true
 # GPU-accelerated terminal emulator
 cask "alacritty"
-# Chromium based browser
-cask "arc"
 # Desktop password and login vault
 cask "bitwarden"
-# OpenAI's official ChatGPT desktop app
-cask "chatgpt"
-# Anthropic's official Claude AI desktop app
-cask "claude"
 # Terminal-based AI coding assistant
 cask "claude-code"
 # Column-oriented database management system
 cask "clickhouse"
-# Write, edit, and chat about your code with AI
-cask "cursor"
-# Universal database tool and SQL client
-cask "dbeaver-community"
 # Web browser
 cask "firefox"
 cask "font-jetbrains-mono-nerd-font"
 # Set of tools to manage resources and applications hosted on Google Cloud
 cask "gcloud-cli"
-# Java IDE by JetBrains
-cask "intellij-idea"
 # Music streaming service
 cask "kkbox"
 # Java heap analyzer
@@ -175,28 +167,12 @@ cask "obsidian"
 cask "session-manager-plugin"
 # Music streaming service
 cask "spotify"
-# Open-source code editor
-cask "visual-studio-code"
-# Wine wrapper built with SwiftUI
-cask "whisky"
 # Network protocol analyzer
 cask "wireshark-app"
 # Multiplayer code editor
 cask "zed"
 # Gecko based web browser
 cask "zen"
-vscode "ms-vscode-remote.remote-containers"
-vscode "redhat.java"
-vscode "scala-lang.scala"
-vscode "scalameta.metals"
-vscode "vscjava.migrate-java-to-azure"
-vscode "vscjava.vscode-gradle"
-vscode "vscjava.vscode-java-debug"
-vscode "vscjava.vscode-java-dependency"
-vscode "vscjava.vscode-java-pack"
-vscode "vscjava.vscode-java-test"
-vscode "vscjava.vscode-java-upgrade"
-vscode "vscjava.vscode-maven"
 go "golang.org/x/tools/cmd/callgraph"
 go "github.com/go-delve/delve/cmd/dlv"
 go "github.com/davidrjenni/reftools/cmd/fillstruct"
